@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .header{
+            background-color: rgb(122, 122, 255);
+            height: 40px;
+            width: 100%;
+            display: flex;
+        }
+
+        .header h3{
+            margin-left: 10px;
+            display: inline;
+        }
+
+        .header p{
+            display: inline;
+            color: rgb(223, 233, 255);
+            margin-left: 10px;
+            margin-top: 7px;
+        }
+        .pa{
+         margin-left: auto;
+         margin-right: 10px;
+         margin-top: 5px;
+        }
+
+        .pa p{
+            color: white    ;
+        }
+        .detailsT tr{
+            padding-top: 10px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .input1{
+            width: 50px;
+        }
+        input{
+            margin-left: 5px;
+
+        }
+        .input2{
+            width: 120px;
+        }
+        .input3{
+            width: 150px;
+        }
+
+        .detailsT input{
+            border: none;
+            border-bottom: 1px black solid;
+            outline: none;
+            color: rgb(139, 139, 139);
+        }
+        .btn-div{
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .btn-div button{
+            border: none;
+            padding: 7px 20px;
+            background-color: rgb(112, 112, 255);
+            color: white;
+        }
+
+        .btn-div button:hover{
+            background-color: rgb(56, 56, 255);
+        }
+        .searchD{
+            display: flex;
+            justify-content: center;
+        }
+        .searchD button{
+            border: none;
+            padding: 3px 15px;
+            background-color: rgb(112, 112, 255);
+            color: white;
+        }
+        .searchD button:hover{
+            background-color: rgb(56, 56, 255);
+        }
+        .searchD p{
+            font-size: 16px;
+            margin-top: 1px;
+        }
+        .searchD input{
+            outline: none;
+            padding: 1px 0px;
+        }
+
+        .result table, th, .result td{
+            border: 2px solid black;
+        }
+
+        .result th, .result td{
+            padding: 10px 14px;
+        }
+
+        .result{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h3 class="text-white hc">CRUD</h3>
+        <p>app</p>
+        <div class="pa">
+        <p>Admin</p>
+    </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2>Enter Details Here...</h2>
+        <hr>
+        <table class="detailsT">
+            <tr>
+                <td>ID</td>
+                <td><input type="number" class="input1"></td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td><input type="text" class="input3"></td>
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td><input type="text" class="input2"></td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Designation</td>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+        
+    </div>
+    <div class="container mt-4">
+        <hr>
+        <div class="btn-div mt-4">
+            <div>
+                <form action="index.php" method="POST">
+                <button type="submit">Insert</button>
+            </form>
+            </div>
+            <div>
+                <form action="index.php" method="POST">
+                <button type="submit">Delete</button>
+            </form>
+            </div>
+            <div>
+                <form action="index.php" method="POST">
+                <button type="submit">Update</button>
+            </form>
+            </div>
+            <div>
+                <form action="index.php" method="POST">
+                <button type="submit">Display</button>
+            </form>
+            </div>
+            <div>
+                <form action="index.php" method="POST">
+                <button type="submit">Clear</button>
+            </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container mt-4">
+        <hr>
+        <div class="searchD mt-4">
+            <p>Finder:</p>
+            <form action="index.php">
+            <input type="text" name="search" id="">
+            <button type="submit">Search</button>
+        </form>
+        </div>
+    </div>
+
+    <div class="container result">
+        <div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Salary</th>
+                <th>Phone Number</th>
+                <th>Designation</th>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>Rohit</td>
+                <td>Karnal</td>
+                <td>35,000</td>
+                <td>7876123777</td>
+                <td>Web Developer</td>
+            </tr>
+        </table>
+    </div>
+    </div>
+
+    <div class="container">
+        <hr>
+    </div>
+    
+</body>
+</html>
+
+if(isset($_POST["display"])){
+
+    if($resdb){
+        echo "";
+    }
+
+    $s = "select * from emp";
+    $res = mysqli_query($con,$s);
+
+    while ($row = mysqli_fetch_row($res)){
+        echo $row[0]," ",$row[1]," ",$row[2];
+    }
+
+}
